@@ -1,0 +1,17 @@
+parameters:
+	# max or 9 is only for hardcore madmen - even this already have too many rants about limits
+	level: 6
+	paths:
+		- 'app'
+#	scanFiles:
+#		- 'php-tests/CommonTestClass.php'
+#	excludePaths:
+#		# autoload
+#		- 'php-tests/_autoload.php'
+#		- 'php-tests/_bootstrap.php'
+#		- 'php-tests/CommonTestClass.php'
+#	bootstrapFiles:
+#		- 'php-tests/_bootstrap.php'
+#	checkGenericClassInNonGenericObjectType: false
+#	ignoreErrors:
+#		# known one

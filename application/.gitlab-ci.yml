@@ -1,0 +1,69 @@
+before_script:
+
+## MASTER
+building_master:
+  only:
+    - master
+  stage: build
+  script:
+    - cd /var/www/poi-api
+    - git reset
+    - git pull
+    - composer install
+#    - php artisan key:generate
+    - php artisan migrate --force
+    - php artisan cache:clear
+    - php artisan config:clear
+    - php artisan storage:link
+#    - php artisan queue:restart
+    - php artisan l5-swagger:generate
+testing_master:
+  only:
+    - master
+  stage: test
+  script:
+    - echo "testing skipped"
+#    - cd /var/www/poi-api
+#    - php ./vendor/bin/phpunit
+deploying_master:
+  only:
+    - master
+  stage: deploy
+  script:
+    - echo "Deployed"
+
+## MASTER
+building_develop:
+  only:
+    - develop
+  stage: build
+  script:
+    - cd /var/www/poi-api-test
+    - git reset
+    - git pull
+    - composer install
+    - php artisan key:generate
+    - php artisan migrate --force
+    - php artisan cache:clear
+    - php artisan config:clear
+    - php artisan storage:link
+#    - php artisan queue:restart
+testing_develop:
+  only:
+    - develop
+  stage: test
+  script:
+    - cd /var/www/poi-api-test
+    - git reset
+    - git pull
+    - composer install
+    - php artisan key:generate
+    - php artisan test
+    - vendor/bin/phpstan analyse -c phpstan.8.1.neon
+    - vendor/bin/php-cs-fixer fix --format=txt --verbose --diff --allow-risky=yes --config=.php-cs-fixer.dist.php
+deploying_develop:
+  only:
+    - develop
+  stage: deploy
+  script:
+    - echo "Deployed"
