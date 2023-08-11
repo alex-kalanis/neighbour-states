@@ -55,6 +55,12 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "analyse": [
+            "vendor/bin/phpstan analyse -c phpstan.8.1.neon"
+        ],
+        "cs-fixer": [
+            "vendor/bin/php-cs-fixer fix --format=txt --verbose --diff --config=.php-cs-fixer.dist.php"
         ]
     },
     "extra": {

@@ -33,14 +33,14 @@ class CountryData extends Model
     /**
      * The attributes that should be cast.
      *
-     * @var array
+     * @var array<string, string>
      */
     protected $casts = [
         'json_data' => 'array',
     ];
 
     /**
-     * @return BelongsToMany<CountryData>
+     * @return BelongsToMany
      */
     public function neighbourCountries()
     {

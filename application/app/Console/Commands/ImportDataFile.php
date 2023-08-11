@@ -77,10 +77,6 @@ class ImportDataFile extends Command
             $this->error(sprintf('ImportDataFile error *%s* - trace: %s', $ex->getMessage(), $ex->getTraceAsString()));
             return Command::FAILURE;
 
-        } finally {
-            if (!empty($stream)) {
-                fclose($stream);
-            }
         }
 
         $this->output->writeln('Import remote data done');

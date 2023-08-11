@@ -35,3 +35,15 @@ docker exec -it testing-neighbour-states-php8 php8.1 artisan test
 
 *Beware!* They use the same tables as main application; so running tests truncate all data!
 After running tests it became necessary to reintroduce the main data!
+
+PHPStan is also available:
+
+```bash
+docker exec -it testing-neighbour-states-php8 /application/composer.phar analyse
+```
+
+And at last CS fixer:
+
+```bash
+docker exec -it testing-neighbour-states-php8 /application/composer.phar cs-fixer
+```

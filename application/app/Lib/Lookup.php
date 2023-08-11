@@ -4,7 +4,6 @@ namespace App\Lib;
 
 use App\Models;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use function Termwind\ValueObjects\pr;
 
 /**
  * Class Lookup
@@ -53,7 +52,7 @@ class Lookup
         $traceToCountry[$country1] = [$country1];
 
         // not need to have never-ending cycle; there is only cca 200 countries, so 300 hops is a good limit (with reserve)
-        for ($i=0; $i<300; $i++) {
+        for ($i=0; 300>$i; $i++) {
 
             $nextCountriesInStep = [];
             foreach ($currentCountriesInStep as $countryCode => $countryNeighbours) {
