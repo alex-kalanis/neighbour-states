@@ -16,7 +16,6 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "vladimir-yuldashev/laravel-queue-rabbitmq": "^13.0",
-        "yidas/google-maps-services": "^1.0",
         "zanysoft/laravel-zip": "^2.0"
     },
     "require-dev": {

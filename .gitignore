@@ -33,7 +33,7 @@ php-tests/external/
 /application/public/hot
 /application/public/storage
 /application/storage/*.key
-/application/vendor
+#/application/vendor
 /application/.env
 /application/.env.backup
 /application/.phpunit.result.cache
